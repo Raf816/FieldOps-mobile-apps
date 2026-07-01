@@ -1,0 +1,234 @@
+<resources>
+    <string name="app_name">FieldOps</string>
+
+    <!-- Navigation — Bottom Nav (Engineer) -->
+    <string name="nav_my_jobs">My Jobs</string>
+    <string name="nav_upcoming">Upcoming</string>
+    <string name="nav_history">History</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Navigation — Drawer (Dispatcher) -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_all_jobs">All Jobs</string>
+    <string name="nav_engineers">Engineers</string>
+    <string name="nav_create_job">Create Job</string>
+    <string name="nav_navigation">Navigation</string>
+    <string name="nav_sign_out">Sign Out</string>
+
+    <!-- Screen Titles -->
+    <string name="screen_title_dashboard">Dashboard</string>
+    <string name="screen_title_all_jobs">All Jobs</string>
+    <string name="screen_title_create_job">Create Job</string>
+    <string name="screen_title_engineers">Engineers</string>
+    <string name="screen_title_upcoming">Upcoming</string>
+    <string name="screen_title_history">History</string>
+    <string name="screen_title_profile">Profile</string>
+    <string name="screen_title_job_detail">Job Detail</string>
+
+    <!-- Auth — Login -->
+    <string name="auth_sign_in">Sign In</string>
+    <string name="auth_create_account">Create Account</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_confirm_password">Confirm password</string>
+    <string name="auth_full_name">Full name</string>
+    <string name="auth_forgot_password">Forgot password?</string>
+    <string name="auth_no_account">Don\'t have an account?</string>
+    <string name="auth_already_have_account">Already have an account?</string>
+    <string name="auth_sign_in_link">Sign in</string>
+    <string name="auth_back_to_sign_in">Back to sign in</string>
+    <string name="auth_set_up_profile">Set up your FieldOps profile</string>
+    <string name="auth_select_role">Select your role</string>
+
+    <!-- Auth — Email Confirmation -->
+    <string name="auth_check_email">Check your email</string>
+    <string name="auth_verification_sent">We\'ve sent a verification link to</string>
+    <string name="auth_verify_before_sign_in">Please verify your email before signing in.</string>
+    <string name="auth_resend_verification">Resend Verification Email</string>
+    <string name="auth_back_to_sign_in_btn">Back to Sign In</string>
+
+    <!-- Auth — Roles -->
+    <string name="auth_role_engineer">Engineer</string>
+    <string name="auth_role_dispatcher">Dispatcher</string>
+    <string name="auth_role_engineer_desc">View and complete assigned jobs</string>
+    <string name="auth_role_dispatcher_desc">Create and assign jobs to engineers</string>
+
+    <!-- Buttons -->
+    <string name="btn_accept">Accept</string>
+    <string name="btn_reject">Reject</string>
+    <string name="btn_start_job">Start Job</string>
+    <string name="btn_complete">Complete</string>
+    <string name="btn_cancel_job">Cancel Job</string>
+    <string name="btn_save_changes">Save Changes</string>
+    <string name="btn_add_note">Add Note</string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_new_job">New Job</string>
+    <string name="btn_dismiss">Dismiss</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_create_job">Create Job</string>
+
+    <!-- Errors — Validation -->
+    <string name="error_name_too_short">Name must be at least 2 characters</string>
+    <string name="error_name_contains_numbers">Name cannot contain numbers</string>
+    <string name="error_email_invalid">Enter a valid email address</string>
+    <string name="error_password_too_short">Password must be at least 6 characters</string>
+    <string name="error_passwords_mismatch">Passwords do not match</string>
+
+    <!-- Empty States -->
+    <string name="empty_no_jobs_today">No jobs scheduled for today</string>
+    <string name="empty_no_jobs_today_subtitle">Enjoy your day off</string>
+    <string name="empty_no_upcoming_week">No upcoming jobs this week</string>
+    <string name="empty_no_upcoming_month">No upcoming jobs this month</string>
+    <string name="empty_no_upcoming">No upcoming jobs</string>
+    <string name="empty_check_back">Check back later</string>
+    <string name="empty_no_history">No completed jobs yet</string>
+    <string name="empty_history_subtitle">Jobs will appear here once completed or cancelled</string>
+    <string name="empty_no_jobs_found">No jobs found</string>
+    <string name="empty_adjust_filters">Try adjusting your search or filters</string>
+    <string name="empty_no_engineers">No engineers registered</string>
+    <string name="empty_engineers_subtitle">Engineers will appear here once they register</string>
+    <string name="empty_no_search_results">No engineers match your search</string>
+    <string name="empty_try_different_search">Try a different search term</string>
+    <string name="empty_create_job_to_start">Create a job to get started</string>
+    <string name="empty_no_active_jobs">No active jobs</string>
+
+    <!-- Form Labels -->
+    <string name="form_title">Title</string>
+    <string name="form_description">Description</string>
+    <string name="form_address">Address</string>
+    <string name="form_priority">Priority</string>
+    <string name="form_assign_engineer">Assign Engineer</string>
+    <string name="form_start_date">Start Date</string>
+    <string name="form_start_time">Start Time</string>
+    <string name="form_end_date">End Date</string>
+    <string name="form_end_time">End Time</string>
+    <string name="form_display_name">Display Name</string>
+
+    <!-- Form Sections -->
+    <string name="section_job_details">Job Details</string>
+    <string name="section_schedule">Schedule</string>
+    <string name="section_assignment">Assignment</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_todays_jobs">Today\'s Jobs</string>
+    <string name="dashboard_assigned">Assigned</string>
+    <string name="dashboard_in_progress">In Progress</string>
+    <string name="dashboard_completed">Completed</string>
+    <string name="dashboard_search_placeholder">Search jobs or engineers…</string>
+
+    <!-- Profile -->
+    <string name="profile_appearance">Appearance</string>
+    <string name="profile_choose_theme">Choose your preferred theme</string>
+    <string name="profile_account">Account</string>
+    <string name="profile_edit_name">Edit Display Name</string>
+    <string name="profile_change_password">Change Password</string>
+    <string name="profile_change_password_subtitle">Update your login credentials</string>
+    <string name="profile_sign_out_confirm_title">Sign Out?</string>
+    <string name="profile_sign_out_confirm_message">Are you sure you want to sign out? Your cached data will be cleared.</string>
+    <string name="profile_theme_system">System</string>
+    <string name="profile_theme_light">Light</string>
+    <string name="profile_theme_dark">Dark</string>
+
+    <!-- Job Detail -->
+    <string name="job_detail_description">Description</string>
+    <string name="job_detail_schedule">Schedule</string>
+    <string name="job_detail_address">Address</string>
+    <string name="job_detail_tap_directions">Tap for directions</string>
+    <string name="job_detail_notes">Notes</string>
+    <string name="job_detail_add_note_placeholder">Add a note…</string>
+    <string name="job_detail_assigned_by">Assigned by dispatcher</string>
+    <string name="job_detail_active_jobs">Active Jobs</string>
+    <string name="job_detail_cancel_title">Cancel Job?</string>
+    <string name="job_detail_cancel_message">This will cancel the job and delete all related notes. This cannot be undone.</string>
+    <string name="job_detail_keep_job">Keep Job</string>
+    <string name="job_detail_reject_title">Reject Job</string>
+    <string name="job_detail_internal_note">Internal note</string>
+
+    <!-- Status Labels -->
+    <string name="status_currently_active">CURRENTLY ACTIVE</string>
+    <string name="status_missed">MISSED</string>
+    <string name="status_job_cancelled">Job Cancelled</string>
+
+    <!-- Engineer Home -->
+    <string name="home_up_next">Up Next</string>
+    <string name="home_total">Total</string>
+    <string name="home_active">Active</string>
+    <string name="home_done">Done</string>
+
+    <!-- Misc -->
+    <string name="app_version">FieldOps v1.0</string>
+    <string name="search_engineers_placeholder">Search by name or email</string>
+    <string name="summary">Summary</string>
+    <string name="available_time_slots">Available time slots:</string>
+    <string name="searching">Searching…</string>
+    <string name="no_results_found">No results found — try a different search</string>
+
+    <!-- Status Gating Screens -->
+    <string name="status_awaiting_title">Awaiting Approval</string>
+    <string name="status_awaiting_subtitle">Your account is being reviewed by an administrator. You\'ll be redirected automatically once approved.</string>
+    <string name="status_suspended_title">Account Suspended</string>
+    <string name="status_suspended_subtitle">Your account has been temporarily suspended. Please contact your administrator for assistance.</string>
+    <string name="status_removed_title">Account Removed</string>
+    <string name="status_removed_subtitle">Your account has been removed from FieldOps. Please contact your administrator if you believe this is an error.</string>
+
+    <!-- Admin Navigation -->
+    <string name="nav_admin_dashboard">Dashboard</string>
+    <string name="nav_admin_pending">Pending</string>
+    <string name="nav_admin_users">Users</string>
+    <string name="nav_admin_engineers">Engineers</string>
+    <string name="nav_admin_dispatchers">Dispatchers</string>
+
+    <!-- Admin Dashboard -->
+    <string name="admin_welcome">Welcome</string>
+    <string name="admin_subtitle">User Management Dashboard</string>
+    <string name="admin_total_users">Total Users</string>
+    <string name="admin_active_users">Active</string>
+    <string name="admin_pending_users">Pending</string>
+    <string name="admin_suspended_users">Suspended</string>
+    <string name="admin_pending_approvals">Pending Approvals</string>
+    <string name="admin_recent_registrations">Recent Registrations</string>
+    <string name="admin_no_pending">No pending approvals</string>
+    <string name="admin_no_pending_subtitle">All users have been reviewed</string>
+    <string name="admin_approve">Approve</string>
+    <string name="admin_reject">Reject</string>
+    <string name="admin_approve_all">Approve All</string>
+    <string name="admin_reject_all">Reject All</string>
+    <string name="admin_no_users">No users found</string>
+    <string name="admin_no_users_subtitle">No users match your current filters</string>
+    <string name="admin_user_detail">User Detail</string>
+    <string name="admin_promote">Promote</string>
+    <string name="admin_demote">Demote</string>
+    <string name="admin_suspend">Suspend</string>
+    <string name="admin_unsuspend">Unsuspend</string>
+    <string name="admin_delete_account">Delete Account</string>
+    <string name="admin_delete_warning">This will remove the user and unassign all their active jobs. This cannot be undone.</string>
+    <string name="admin_suspend_warning">This will temporarily block the user from accessing the app.</string>
+    <string name="admin_unsuspend_warning">This will restore the user\'s access to the app.</string>
+    <string name="admin_promote_warning">Change this user\'s role?</string>
+    <string name="admin_role_change">Role Change</string>
+    <string name="admin_active_jobs_warning">This user has %d active job(s) that will be unassigned.</string>
+    <string name="admin_registered">Registered %s</string>
+    <string name="admin_search_users">Search by name or email</string>
+    <string name="admin_filter_all">All</string>
+    <string name="admin_filter_engineers">Engineers</string>
+    <string name="admin_filter_dispatchers">Dispatchers</string>
+    <string name="admin_filter_active">Active</string>
+    <string name="admin_filter_pending">Pending</string>
+    <string name="admin_filter_suspended">Suspended</string>
+    <string name="admin_change_role">Change Role</string>
+    <string name="admin_actions">Actions</string>
+    <string name="admin_user_info">User Information</string>
+    <string name="admin_confirm_approve">Approve this user? They will gain full access to FieldOps.</string>
+    <string name="admin_confirm_reject">Reject this user? Their account data will be removed.</string>
+    <string name="admin_confirm_approve_all">Approve all pending users? They will all gain full access.</string>
+    <string name="admin_confirm_reject_all">Reject all pending users? Their account data will be removed.</string>
+    <string name="admin_pending_badge">%d pending</string>
+    <string name="admin_tap_to_review">Tap to review and approve</string>
+    <string name="admin_active_jobs_count">%d active job(s)</string>
+    <string name="admin_unassigned_warning">Will be unassigned if user is deleted</string>
+    <string name="admin_filter_role">Role</string>
+    <string name="admin_filter_status">Status</string>
+    <string name="admin_role_badge">Admin</string>
+</resources>

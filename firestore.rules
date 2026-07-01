@@ -1,0 +1,118 @@
+rules_version = '2';
+
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Returns true if the request is from an authenticated user.
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Fetches the requesting user's role from their user document.
+    function role() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    // Returns true if the requesting user is a dispatcher.
+    function isDispatcher() {
+      return role() == 'dispatcher';
+    }
+
+    // Returns true if the requesting user is an engineer.
+    function isEngineer() {
+      return role() == 'engineer';
+    }
+
+    // Returns true if the requesting user is an admin.
+    function isAdmin() {
+      return role() == 'admin';
+    }
+
+    // Returns true if the requesting user has "active" status.
+    // Pending and suspended users are blocked from all write operations.
+    function isActive() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
+    }
+
+    // Validates that an engineer is only performing a valid job status transition.
+    // prevents engineers from:
+    //   - Skipping steps (Assigned to Completed)
+    //   - Going backwards (InProgress to Accepted)
+    //   - Cancelling jobs (only dispatchers can delete)
+    function isValidEngineerTransition() {
+      let oldStatus = resource.data.status;
+      let newStatus = request.resource.data.status;
+
+      return (
+
+        (oldStatus == 'Assigned' && newStatus == 'Accepted') ||
+        (oldStatus == 'Assigned' && newStatus == 'Dismissed') ||
+        (oldStatus == 'Accepted' && newStatus == 'InProgress') ||
+        (oldStatus == 'InProgress' && newStatus == 'Completed') ||
+        (oldStatus == 'Assigned' && newStatus == 'Assigned' &&
+         request.resource.data.assignedTo == '')
+      );
+    }
+
+    // Users Collection
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && (
+        request.auth.uid == userId || isDispatcher() || isAdmin()
+      );
+
+      allow create: if isSignedIn() && request.auth.uid == userId;
+
+      allow update: if isSignedIn() && (
+        (request.auth.uid == userId &&
+         request.resource.data.role == resource.data.role &&
+         request.resource.data.status == resource.data.status) ||
+        (isAdmin() && isActive() &&
+         request.auth.uid != userId &&
+         resource.data.role != 'admin')
+      );
+
+      allow delete: if isSignedIn() && isAdmin() && isActive() &&
+        resource.data.role != 'admin';
+    }
+
+    match /jobs/{jobId} {
+      // Read: dispatcher/admin sees all, engineer sees only their assigned jobs
+      allow read: if isSignedIn() && (
+        isDispatcher() || isAdmin() ||
+        resource.data.assignedTo == request.auth.uid
+      );
+
+      // Create: dispatchers and admins only (must be active)
+      allow create: if isSignedIn() && (isDispatcher() || isAdmin()) && isActive();
+
+      allow update: if isSignedIn() && isActive() && (
+        isDispatcher() || isAdmin() ||
+        (isEngineer() &&
+         resource.data.assignedTo == request.auth.uid &&
+         isValidEngineerTransition() &&
+         // Engineers cannot change who created the job
+         request.resource.data.createdBy == resource.data.createdBy)
+      );
+
+      // Delete: dispatchers and admins only (must be active, used for job cancellation)
+      allow delete: if isSignedIn() && (isDispatcher() || isAdmin()) && isActive();
+
+      match /notes/{noteId} {
+        // Read: dispatcher/admin sees all, engineer sees notes on their assigned job
+        allow read: if isSignedIn() && (
+          isDispatcher() || isAdmin() ||
+          get(/databases/$(database)/documents/jobs/$(jobId)).data.assignedTo == request.auth.uid
+        );
+
+        // Create: must be signed in, active, AND authorUid must be your own UID
+        allow create: if isSignedIn() && isActive() &&
+          request.resource.data.authorUid == request.auth.uid;
+
+        // Update and Delete: notes are append-only (immutable/cant be deleted)
+        allow update, delete: if false;
+      }
+    }
+  }
+}

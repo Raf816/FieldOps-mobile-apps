@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug-only manifest overlay.
+    1. Adds networkSecurityConfig to trust user-installed CA certificates
+       (needed for Zscaler corporate proxy on development machines).
+    2. Registers HiltTestActivity so Compose test rules can launch it
+       during instrumented tests (Lecture 10 pattern).
+    This merges with the main AndroidManifest.xml in debug builds only.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="24">
+
+        <!--
+            Host activity for Hilt-integrated Compose UI tests.
+            Launched by createAndroidComposeRule<HiltTestActivity>() in androidTest.
+            Not exported — only accessible within the test process.
+        -->
+        <activity
+            android:name="com.raf.fieldops.HiltTestActivity"
+            android:exported="false" />
+    </application>
+</manifest>

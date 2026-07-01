@@ -1,0 +1,35 @@
+.gradle/
+build/
+.idea/
+*.iml
+local.properties
+google-services.json
+.kotlin/
+.DS_Store
+.externalNativeBuild
+.cxx
+/captures
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# Corporate certificates
+*.crt
+*.cer
+*.pem
