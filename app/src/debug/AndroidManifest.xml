@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Debug-only manifest overlay.
-    1. Adds networkSecurityConfig to trust user-installed CA certificates
+    Adds networkSecurityConfig to trust user-installed CA certificates
        (needed for Zscaler corporate proxy on development machines).
-    2. Registers HiltTestActivity so Compose test rules can launch it
-       during instrumented tests (Lecture 10 pattern).
-    This merges with the main AndroidManifest.xml in debug builds only.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
