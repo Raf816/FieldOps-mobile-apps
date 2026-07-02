@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Debug-only network security config.
-    Trusts user-installed CA certificates (e.g. Zscaler corporate proxy)
-    so Firebase can connect through HTTPS-intercepting proxies.
-    This file only applies to debug builds — release builds use the
-    default config which only trusts system certificates.
--->
 <network-security-config>
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>

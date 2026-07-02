@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Network Security Configuration — Release/Production
-
-    Enforces HTTPS-only communication by disabling cleartext (HTTP) traffic.
-    All Firestore and Firebase Auth traffic uses TLS by default (Google infra),
-    but this config makes the policy explicit and prevents accidental HTTP usage.
-
-    The debug variant (src/debug/res/xml/network_security_config.xml) additionally
-    trusts user-installed certificates to support the Zscaler SSL proxy on the
-    BT work laptop. This release config does NOT trust user certificates —
-    only system CA certificates are trusted in production.
-
-    Reference: Lecture 11 — Security (Network Configuration)
--->
 <network-security-config>
-    <!-- Disable cleartext (HTTP) traffic globally — HTTPS only -->
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>
-            <!-- Trust only system-installed CA certificates in production -->
             <certificates src="system" />
         </trust-anchors>
     </base-config>
