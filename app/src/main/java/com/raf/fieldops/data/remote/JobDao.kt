@@ -20,6 +20,7 @@ class JobDao @Inject constructor(private val firestore: FirebaseFirestore) {
 
     private val jobsCollection = firestore.collection("jobs")
 
+    // reserve ID before writing so the Job carries its own id field
     suspend fun add(job: Job) {
         val newDocRef = jobsCollection.document()
         val jobWithId = job.copy(id = newDocRef.id)
@@ -30,6 +31,7 @@ class JobDao @Inject constructor(private val firestore: FirebaseFirestore) {
         jobsCollection.document(job.id).set(job).await()
     }
 
+    // delete notes subcollection first, then the job itself
     suspend fun delete(jobId: String) {
         withContext(NonCancellable) {
             val jobRef = jobsCollection.document(jobId)

@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
+// notes are append-only
 @Singleton
 class NoteRepository @Inject constructor(
     private val noteDao: NoteDao

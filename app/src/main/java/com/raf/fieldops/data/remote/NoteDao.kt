@@ -17,6 +17,7 @@ class NoteDao @Inject constructor(private val firestore: FirebaseFirestore) {
 
     private val jobsCollection = firestore.collection("jobs")
 
+    // server sets the timestamp so note ordering is consistent across devices
     suspend fun addNote(
         jobId: String,
         text: String,
@@ -37,6 +38,7 @@ class NoteDao @Inject constructor(private val firestore: FirebaseFirestore) {
             .await()
     }
 
+    //listener sorted oldest-first
     fun getNotesForJob(jobId: String): Flow<List<Note>> {
         return jobsCollection.document(jobId)
             .collection("notes")

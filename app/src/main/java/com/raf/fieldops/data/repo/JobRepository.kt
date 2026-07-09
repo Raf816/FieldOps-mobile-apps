@@ -49,6 +49,7 @@ class JobRepository @Inject constructor(
 
     override fun getAllJobs(): Flow<List<Job>> = jobDao.getAll()
 
+    // switches between Firestore and Room depending on network
     override fun getJobsForEngineer(uid: String): Flow<List<Job>> =
         networkMonitor.isOnline.flatMapLatest { online ->
             if (online) {

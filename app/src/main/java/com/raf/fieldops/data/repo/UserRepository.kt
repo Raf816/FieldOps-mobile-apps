@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
+//wrapper delegates to UserDao, no caching needed for user data
 @Singleton
 class UserRepository @Inject constructor(
     private val userDao: UserDao

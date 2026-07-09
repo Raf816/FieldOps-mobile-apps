@@ -29,6 +29,7 @@ class UserDao @Inject constructor(private val firestore: FirebaseFirestore) {
         return user?.role
     }
 
+    // only show verified engineers in the assignment dropdown
     fun getAllEngineers(): Flow<List<User>> {
         return usersCollection
             .whereEqualTo("role", "engineer")
@@ -53,6 +54,7 @@ class UserDao @Inject constructor(private val firestore: FirebaseFirestore) {
             .await()
     }
 
+    //listener: pushes changes when admin updates this user's doc
     fun observeUser(uid: String): Flow<User?> {
         return usersCollection.document(uid)
             .snapshots()
@@ -60,6 +62,7 @@ class UserDao @Inject constructor(private val firestore: FirebaseFirestore) {
             .catch { emit(null) }
     }
 
+    // exclude admins from the user management list
     fun getAllUsers(): Flow<List<User>> {
         return usersCollection
             .snapshots()

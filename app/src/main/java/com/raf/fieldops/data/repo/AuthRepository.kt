@@ -23,7 +23,7 @@ class AuthRepository @Inject constructor(
     ): Response {
         return try {
             auth.signInWithEmailAndPassword(email, password).await()
-
+            // reload to get email verification status
             auth.currentUser?.reload()?.await()
             Response.Success
         } catch (e: Exception) {
@@ -69,6 +69,7 @@ class AuthRepository @Inject constructor(
             val user = auth.currentUser ?: return Response.Failure(Exception("No user signed in"))
             val email = user.email ?: return Response.Failure(Exception("No email on account"))
 
+            // re-auth required by Firebase before changes
             val credential = EmailAuthProvider.getCredential(email, currentPassword)
             user.reauthenticate(credential).await()
 
